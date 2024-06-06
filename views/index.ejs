@@ -10,6 +10,7 @@
   <body>
     <div class="w-full min-h-screen bg-zinc-900" id="main">
       <div class="from p-10 text-white">
+
         <form action="/create" method="post" class="input">
           <input
             class="block w-full rounded-md outline-none px-5 py-2 bg-zinc-800"
@@ -31,12 +32,24 @@
         </form>
       </div>
 
+      <ul class="px-10 py-2">
+        <% files.forEach(function(file) { %>
+            <li>
+                <a class="text-blue-500" href="/files/<%= file %>"><%= file %></a>
+                <form action="/delete" method="POST" style="display:inline;">
+                    <input type="hidden" name="name" value="<%= file.split('.txt')[0] %>" />
+                    <button type="submit" class="text-red-500 ml-2">Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+
       <div class="tasks flex gap-3 flex-wrap p-10" id="container">
         <% if(files.length > 0) { %>
           <% files.forEach(function(val) { %>
             <div class="box-1 task min-w-72 px-3 py-4 rounded-md bg-zinc-800">
               <h1 class="text-white tracking-tighter"><%= val %></h1>
-              <a class="text-blue-500 inline-block mt-3" href="#">read more</a>
+              <a class="text-blue-500 inline-block mt-3" href="/file/<%= val %>">read more</a>
             </div>
           <% }) %>
         <% } else { %>
