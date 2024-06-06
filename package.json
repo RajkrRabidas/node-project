@@ -1,0 +1,16 @@
+{
+  "name": "routing-project-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "strat": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "raj kumar",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
